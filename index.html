@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calcolo giorni</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stile.css') }}">
+</head>
+<body>
+    <h1 class="beige">CALCOLO GIORNI TRASCORSI</h1>
+    <hr/>
+    <h2 class="brown">Inserisci due date per scoprire quanti giorni sono trascorsi.</h2>
+    
+    <div class="contenitore-flex">
+        <div id="motivi">
+            <h3>Motivi per usare questo sito:</h3>
+            <ol>
+                <li>Perché l'ho fatto io.</li>
+                <li>Puoi scoprire quanti giorni hai vissuto.</li>
+                <li>Puoi scoprire da quanti giorni sei single.</li>
+                <li>Puoi scoprire da quanti giorni AleCatr ha il foglio rosa. (28 Luglio 2025)</li>
+            </ol>
+        </div>
+        
+        <div id="image">
+            <figure>
+                <img src="{{ url_for('static', filename='tempo.jpg') }}" alt="La persistenza della memoria">
+                <figcaption>"La persistenza della memoria" ("Gli orologi molli"). Salvador Dalì, 1931, Museum of Modern Art di New York.</figcaption>
+            </figure>
+        </div>
+    </div>
+    
+    <div id="madeby">
+        <p>MADE BY FEDERICO N.</p>
+    </div>
+
+    <div id="form">
+        <form method="POST" action="/">
+            <h4>DATA INIZIALE</h4>
+            <input type="number" name="giornoi" placeholder="Giorno" required>
+            <input type="number" name="mesei" placeholder="Mese" required>
+            <input type="number" name="annoi" placeholder="Anno" required>
+
+            <h4>DATA FINALE</h4>
+            <input type="number" name="giornof" placeholder="Giorno" required>
+            <input type="number" name="mesef" placeholder="Mese" required>
+            <input type="number" name="annof" placeholder="Anno" required>
+
+            <br><br>
+            <input type="submit" value="Calcola Giorni">
+        </form>
+    </div>
+    <br><br><br>
+
+    <div id="risultato">
+        {% if risultato %}
+            <p>{{ risultato }}</p>
+        {% endif %}
+    </div>
+
+    <div id="errore">
+        {% if errore %}
+            <p>{{ errore }}</p>
+        {% endif %}
+    </div>
+    
+</body>
+</html>
